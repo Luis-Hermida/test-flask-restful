@@ -17,12 +17,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 api = Api(app)  # Allow us to add resources to app
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 # To change the authentication URL (Default: /auth)
 app.config["JWT_AUTH_URL_RULE"] = "/auth"
 # Config JWT to expire within half an hour (Default: 300)
